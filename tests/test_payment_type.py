@@ -25,7 +25,7 @@ class PaymentTests(APITestCase):
         """
         Ensure we can add a payment type for a customer.
         """
-        # Add product to order
+        # Add payment type to order
         data = {
             "merchant": self.faker.credit_card_provider(),
             "acctNumber": self.faker.credit_card_number()
@@ -37,3 +37,16 @@ class PaymentTests(APITestCase):
         self.assertIsNotNone(response.data['id'])
         self.assertEqual(response.data["merchant_name"], data['merchant'])
         self.assertEqual(response.data["acct_number"], data['acctNumber'])
+
+    # def test_delete_payment_type(self):
+    #     """
+    #     Ensure we can delete a payment type for a customer
+    #     """
+
+    #     # Add product to order
+    #     data = {
+    #         "merchant" : self.faker.credit_card_provider(),
+    #         "acctNumber": self.faker.credit_card_number()
+    #     }
+
+        # Add a payment method
